@@ -55,7 +55,7 @@
   "sourceMap": "34:345:10:-:0;;;203:56;5:9:-1;2:2;;;27:1;24;17:12;2:2;203:56:10;242:10;234:5;;:18;;;;;;;;;;;;;;;;;;34:345;;;;;;",
   "deployedSourceMap": "34:345:10:-:0;;;;5:9:-1;2:2;;;27:1;24;17:12;2:2;34:345:10;;;;;;;;;;;;;;;;;;;;;;;;;;12:1:-1;9;2:12;86:39:10;;;:::i;:::-;;;;;;;;;;;;;;;;;;;60:20;;;:::i;:::-;;;;;;;;;;;;;;;;;;;;;;;265:112;;;;;;15:2:-1;10:3;7:11;4:2;;;31:1;28;21:12;4:2;265:112:10;;;;;;;;;;;;;;;;;:::i;:::-;;86:39;;;;:::o;60:20::-;;;;;;;;;;;;;:::o;265:112::-;182:5;;;;;;;;;;;168:19;;:10;:19;;;164:26;;;361:9:::1;334:24;:36;;;;164:26:::0;265:112;:::o",
   "source": "pragma solidity >=0.4.25 <0.7.0;\n\ncontract Migrations {\n    address public owner;\n    uint256 public last_completed_migration;\n\n    modifier restricted() {\n        if (msg.sender == owner) _;\n    }\n\n    constructor() public {\n        owner = msg.sender;\n    }\n\n    function setCompleted(uint256 completed) public restricted {\n        last_completed_migration = completed;\n    }\n}\n",
-  "sourcePath": "/home/gn0hp/merkle_starter/merklestarter/contracts/contracts/Migrations.sol",
+  "sourcePath": "/home/gn0hp/git_project/MerkleStarter/contracts/contracts/Migrations.sol",
   "ast": {
     "absolutePath": "project:/contracts/Migrations.sol",
     "exportedSymbols": {
@@ -982,12 +982,18 @@
     "42": {
       "events": {},
       "links": {},
-      "address": "0x0D083800912b071E29F178598F58202d0CBe8E7E",
-      "transactionHash": "0xd2287b96d1c04a8e0595f443c375b44b25db56ead4e5f7148a6160e39e6b4c4c"
+      "address": "0x43B99A6715DCAc48430bFC7B19d8A0e27c9cA1ad",
+      "transactionHash": "0x054adfbbe4d8f6ed8b710c36b85fcb511e7f3747bcc2f16d764c8279fb1bdfb5"
+    },
+    "5777": {
+      "events": {},
+      "links": {},
+      "address": "0xe892366E4605cF1C00c8ebe7b272a8835Cda724f",
+      "transactionHash": "0x08c22e7a30d317ea88678b0817ea755e5d53f101a86618eb2bad46f752f4195d"
     }
   },
   "schemaVersion": "3.4.7",
-  "updatedAt": "2022-04-27T12:38:35.992Z",
+  "updatedAt": "2022-04-28T04:14:51.149Z",
   "networkType": "ethereum",
   "devdoc": {
     "methods": {}

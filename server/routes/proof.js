@@ -17,7 +17,7 @@ router.get('/:trancheId/:address', async (req, res) => {
     console.log(trancheId, address);
     const info = await Whitelist.findOne({ tranche: trancheId, address });
     console.log(info);
-    if (!info) return res.status(500).json({ msg: 'Internal Server Error' });
+    if (!info) return res.status(500).json({ msg: 'Internal Server Error 0' });
     let { amount } = info;
     amount = new BN(amount.toString() + '000000000000000000');
     let result = await Whitelist.find({ tranche: trancheId });
@@ -33,7 +33,7 @@ router.get('/:trancheId/:address', async (req, res) => {
     return res.status(200).json({ proof: proof });
   } catch (error) {
     console.log(error);
-    return res.status(500).json({ msg: 'Internal Server Error' });
+    return res.status(500).json({ msg: 'Internal Server Error 1' });
   }
 });
 

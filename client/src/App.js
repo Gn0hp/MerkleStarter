@@ -14,6 +14,7 @@ import Web3 from 'web3';
 import store from 'store';
 import BN from 'bn.js';
 
+
 import {
   setWeb3,
   setAddress,
@@ -31,9 +32,11 @@ import MerkleStarter from 'contracts/MerkleStarter.json';
 import IERC20 from 'contracts/IERC20.json';
 import './assets/scss/style-landing-page.scss';
 
+require('dotenv').config();
+
 const starterAddress = process.env.REACT_APP_STARTER_ADDRESS;
 const tokenAddress = process.env.REACT_APP_TOKEN_ADDRESS;
-
+console.log(starterAddress)
 function App() {
   const loading = useSelector((state) => state.loading);
   const address = useSelector((state) => state.address);
@@ -70,6 +73,10 @@ function App() {
     let starter = new web3.eth.Contract(MerkleStarter.abi, starterAddress);
     const token = new web3.eth.Contract(IERC20.abi, tokenAddress);
 
+    console.log(starterAddress)
+    console.log(token)
+    starter.options.address = starterAddress
+    
     let tranche = await starter.methods.tranches().call({ from: currentAccount });
 
     let claimableAmount = 0;

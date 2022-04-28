@@ -16,6 +16,8 @@ Merkle Starter system contains 3 part:
 
 > **IMPORTANT**: Don't post your private key in any where public, don't share to any body. If you lose your key, you will lose you money.
 
+> **REQUIREMENT**: 
+
 ### Contract
 
 Step 1: install dependencies:
@@ -29,12 +31,26 @@ Step 2: Copy `.env.example` to a new `.env` file and fill your environment varia
 ```js
 INFURA_ID=<fill infura id here>
 PRIVATE_KEY=<fill private key here>
-TOKEN_ADDRESS=<fill your token address here>
 ```
 
 if you not have a infura id, go to `https://infura.io/` to register one.
 
 Step 3: run deployment with a specific network
+
+> **NOTIFY** /contracts/migrations/2_starter_migrations.js  -> You may want to fix hardcode BASE_ON file 0.csv in Server deploy part
+
+if you want to config more network, you can add/change it in `truffle-config.js`, example:
+
+```js
+kovan:{
+      provider: function(){
+        return new HDWalletProvider(process.env.PRIVATE_KEY, "https://kovan.infura.io/v3/" + process.env.INFURA_ID)
+      },
+      gas: 5000000,
+      gasPrice: 25000000000,
+      network_id: 42
+    },
+```
 
 ```js
 truffle migrate --reset --network <fill network here>
@@ -43,22 +59,10 @@ truffle migrate --reset --network <fill network here>
 for example
 
 ```js
-truffle migrate --reset --network rinkeby
+truffle migrate --network kovan --reset
 ```
 
-if you want to config more network, you can add/change it in `truffle-config.js`, example:
 
-```js
-rinkeby: {
-  provider: new HDWalletProvider(
-    process.env.PRIVATE_KEY,
-    'https://rinkeby.infura.io/v3/' + process.env.INFURA_ID
-  ),
-  network_id: '4',
-},
-```
-
-at end of migration, you can see deployed `MerkleStarter` contract address in terminal. Or you can get address in `contracts/build/contracts/MerkleStarter.json` file.
 
 ### Server
 
@@ -77,7 +81,7 @@ npm install
 
 ```js
 MONGODB_URI=<mongodb uri, for default you can use 'mongodb://localhost:27017'>
-NETWORK_ID=<your using network id, ex mainnet = 1, rinkeby = 4>
+NETWORK_ID=<your using network id, ex mainnet = 1, rinkeby = 4, kovan = 42>
 PRIVATE_KEY=<your private key>
 INFURA_ID=<your infura id>
 TOKEN_ADDRESS=<your token address>
