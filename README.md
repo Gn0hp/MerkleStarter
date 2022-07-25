@@ -31,20 +31,10 @@ Merklestarter will let funder easier to raise fund, once for thousand people, an
 ### User
 - Go to client page, claim their tokens. For more detail, first users address will be send to server to check whitelist status in MongoDB, then if valid, server will response a Merkle Proof of that address, which will be submited to MerkleStater contract to verify, then claim their tokens, all on 1 transaction only.
 
-## Curren Development Progress
-
-- [x] Smart Contracts: Done
-- [x] Server: Done
-- [x] Client: Done
-- [ ] Operator Page: To be developed, now run by scripts only
-- [ ] Crosschain: To be developed
-
 ## Instructions
 
 See [Instructions](Instructions.md) for more details.
 
-## LICENSE
-
-[![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg?style=for-the-badge)](./LICENSE)
+* Fork from: https://github.com/maxdaniel197/merklestarter
 
 
